@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./to-do-list.png" type="image/x-icon">
+    <title>TaskSphere – A world of organized tasks.</title>
+    <script src="https://kit.fontawesome.com/d06933270a.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+/* Input Section (Takes 0vh - 30vh) */
+.inputContainer {
+    width: 80%;
+    height: 30vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #ddd;
+    border-radius: 1rem;
+}
+
+.inputContainer input[type="text"] {
+    width: 80%;
+    max-width: 400px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.inputContainer input[type="submit"] {
+    width: 150px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.inputContainer input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Main Container (Takes the remaining space) */
+#mainContainer {
+    width: 90%;
+    max-width: 600px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin: 1rem;
+}
+
+/* Task Items */
+#mainContainer div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    gap: 10px;
+}
+
+#mainContainer div:last-child {
+    border-bottom: none;
+}
+
+#mainContainer input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.updateBtn, .deleteBtn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.updateBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+.updateBtn:hover {
+    background-color: #218838;
+}
+
+.deleteBtn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.deleteBtn:hover {
+    background-color: #c82333;
+}
+#taskForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 80%;
+}
+
+#micButton{
+    font-size: 1.4rem;
+    margin: 1rem;
+}
+.searchContainer{
+    display: flex;
+    align-items: center;
+    /* flex-direction: row; */
+    gap: 1.3rem;
+}
+/* ✅ Responsive Design */
+
+/* Mini Phones (up to 375px) */
+@media screen and (max-width: 375px) {
+    .inputContainer {
+        height: 25vh;
+    }
+    .inputContainer input[type="text"] {
+        width: 90%;
+    }
+}
+
+/* Phones (376px to 576px) */
+@media screen and (max-width: 576px) {
+    .inputContainer {
+        height: 25vh;
+    }
+    #mainContainer {
+        width: 95%;
+    }
+}
+
+/* Tablets & iPads (577px to 768px) */
+@media screen and (max-width: 768px) {
+    .inputContainer {
+        height: 28vh;
+    }
+    #mainContainer {
+        max-width: 600px;
+    }
+}
+
+/* Mini Laptops (769px to 1024px) */
+@media screen and (max-width: 1024px) {
+    .inputContainer {
+        height: 30vh;
+    }
+    #mainContainer {
+        max-width: 700px;
+    }
+}
+
+/* Laptops (1025px to 1440px) */
+@media screen and (max-width: 1440px) {
+    .inputContainer {
+        height: 30vh;
+    }
+    #mainContainer {
+        max-width: 800px;
+    }
+}
+
+/* Desktops (Above 1440px) */
+@media screen and (min-width: 1441px) {
+    .inputContainer {
+        height: 30vh;
+    }
+    #mainContainer {
+        max-width: 900px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <span class="title">TaskSphere</span>
+    <div class="inputContainer">
+        <form id="taskForm">
+            <div class="searchContainer">
+                <input type="text" id="task" placeholder="Enter a Task">
+                <span id="micButton"><i class="fa-solid fa-microphone"></i></span>
+            </div>
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
+    <div id="mainContainer">
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
