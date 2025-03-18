@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,209 +9,263 @@
     <script src="https://kit.fontawesome.com/d06933270a.js" crossorigin="anonymous"></script>
     <style>
         /* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+        }
 
-/* Input Section (Takes 0vh - 30vh) */
-.inputContainer {
-    width: 80%;
-    height: 30vh;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-bottom: 2px solid #ddd;
-    border-radius: 1rem;
-}
+        /* Input Section (Takes 0vh - 30vh) */
+        .inputContainer {
+            width: 80%;
+            height: 30vh;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #ddd;
+            border-radius: 1rem;
+        }
 
-.inputContainer input[type="text"] {
-    width: 80%;
-    max-width: 400px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        .inputContainer input[type="text"] {
+            width: 80%;
+            max-width: 400px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-.inputContainer input[type="submit"] {
-    width: 150px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
+        .inputContainer input[type="submit"] {
+            width: 150px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.inputContainer input[type="submit"]:hover {
-    background-color: #0056b3;
-}
+        .inputContainer input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
 
-/* Main Container (Takes the remaining space) */
-#mainContainer {
-    width: 90%;
-    max-width: 600px;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 10px;
-}
+        /* Main Container (Takes the remaining space) */
+        #mainContainer {
+            width: 90%;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 10px;
+        }
 
-.title{
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    display: block;
-    margin: 1rem;
-}
+        .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin: 1rem;
+        }
 
-/* Task Items */
-#mainContainer div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    gap: 10px;
-}
+        /* Task Items */
+        #mainContainer div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            gap: 10px;
+        }
 
-#mainContainer div:last-child {
-    border-bottom: none;
-}
+        #mainContainer div:last-child {
+            border-bottom: none;
+        }
 
-#mainContainer input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        #mainContainer input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-.updateBtn, .deleteBtn {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
+        .updateBtn,
+        .deleteBtn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.updateBtn {
-    background-color: #28a745;
-    color: white;
-}
+        .updateBtn {
+            background-color: #28a745;
+            color: white;
+        }
 
-.updateBtn:hover {
-    background-color: #218838;
-}
+        .updateBtn:hover {
+            background-color: #218838;
+        }
 
-.deleteBtn {
-    background-color: #dc3545;
-    color: white;
-}
+        .deleteBtn {
+            background-color: #dc3545;
+            color: white;
+        }
 
-.deleteBtn:hover {
-    background-color: #c82333;
-}
-#taskForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 80%;
-}
+        .deleteBtn:hover {
+            background-color: #c82333;
+        }
 
-#micButton{
-    font-size: 1.4rem;
-    margin: 1rem;
-}
-.searchContainer{
-    display: flex;
-    align-items: center;
-    /* flex-direction: row; */
-    gap: 1.3rem;
-}
-/* ✅ Responsive Design */
+        #taskForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: 80%;
+        }
 
-/* Mini Phones (up to 375px) */
-@media screen and (max-width: 375px) {
-    .inputContainer {
-        height: 25vh;
-    }
-    .inputContainer input[type="text"] {
-        width: 90%;
-    }
-}
+        .searchContainer {
+            display: flex;
+            align-items: center;
+            /* flex-direction: row; */
+            gap: 1.3rem;
+        }
 
-/* Phones (376px to 576px) */
-@media screen and (max-width: 576px) {
-    .inputContainer {
-        height: 25vh;
-    }
-    #mainContainer {
-        width: 95%;
-    }
-}
+        /* Mic button styling */
+        #micButton {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
 
-/* Tablets & iPads (577px to 768px) */
-@media screen and (max-width: 768px) {
-    .inputContainer {
-        height: 28vh;
-    }
-    #mainContainer {
-        max-width: 600px;
-    }
-}
+        /* Microphone icon color */
+        #micButton i {
+            /* color: white; */
+            font-size: 20px;
+        }
 
-/* Mini Laptops (769px to 1024px) */
-@media screen and (max-width: 1024px) {
-    .inputContainer {
-        height: 30vh;
-    }
-    #mainContainer {
-        max-width: 700px;
-    }
-}
+        /* Pulsing animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 5px rgba(255, 77, 77, 0.5);
+                background-color: #ff4d4d;
+                color: #fff;
+            }
 
-/* Laptops (1025px to 1440px) */
-@media screen and (max-width: 1440px) {
-    .inputContainer {
-        height: 30vh;
-    }
-    #mainContainer {
-        max-width: 800px;
-    }
-}
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 15px rgba(255, 77, 77, 0.7);
+                background-color: #ff4d4d;
+                color: #fff;
 
-/* Desktops (Above 1440px) */
-@media screen and (min-width: 1441px) {
-    .inputContainer {
-        height: 30vh;
-    }
-    #mainContainer {
-        max-width: 900px;
-    }
-}
+            }
 
+            /* 100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(255, 77, 77, 0.5);
+        background-color: #ff4d4d;
+        color: #fff;
+    } */
+        }
+
+        /* Click effect */
+        #micButton:active {
+            transform: scale(1.2);
+            background-color: #ff1a1a;
+        }
+
+        /* ✅ Responsive Design */
+
+        /* Mini Phones (up to 375px) */
+        @media screen and (max-width: 375px) {
+            .inputContainer {
+                height: 25vh;
+            }
+
+            .inputContainer input[type="text"] {
+                width: 100%;
+            }
+        }
+
+        /* Phones (376px to 576px) */
+        @media screen and (max-width: 576px) {
+            .inputContainer {
+                height: 25vh;
+            }
+
+            #mainContainer {
+                width: 100%;
+            }
+        }
+
+        /* Tablets & iPads (577px to 768px) */
+        @media screen and (max-width: 768px) {
+            .inputContainer {
+                height: 28vh;
+            }
+
+            #mainContainer {
+                max-width: 600px;
+            }
+        }
+
+        /* Mini Laptops (769px to 1024px) */
+        @media screen and (max-width: 1024px) {
+            .inputContainer {
+                height: 30vh;
+            }
+
+            #mainContainer {
+                max-width: 700px;
+            }
+        }
+
+        /* Laptops (1025px to 1440px) */
+        @media screen and (max-width: 1440px) {
+            .inputContainer {
+                height: 30vh;
+            }
+
+            #mainContainer {
+                max-width: 800px;
+            }
+        }
+
+        /* Desktops (Above 1440px) */
+        @media screen and (min-width: 1441px) {
+            .inputContainer {
+                height: 30vh;
+            }
+
+            #mainContainer {
+                max-width: 900px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <span class="title">TaskSphere</span>
     <div class="inputContainer">
@@ -226,4 +281,5 @@ body {
     </div>
     <script src="./index.js"></script>
 </body>
+
 </html>

@@ -88,19 +88,16 @@ if ('webkitSpeechRecognition' in window) {
     recognition.continuous = false; // Capture only one phrase
     recognition.lang = 'en-US'; // Set language
   
-    const micButton = document.getElementById('micButton'); // Replace with your mic button ID
-    const todoList = document.getElementById('todoList'); // Replace with your todo list ID
+    const micButton = document.getElementById('micButton'); 
   
     micButton.addEventListener('click', () => {
       recognition.start();
+      micButton.style.animation = "pulse 1.5s infinite ease-in-out";
     });
   
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
       console.log(transcript)
-    //   const listItem = document.createElement('li');
-    //   listItem.textContent = transcript;
-    //   todoList.appendChild(listItem);
     if (transcript === "") {
         return alert("No task recognized. Please try again.");
     }
@@ -121,9 +118,10 @@ if ('webkitSpeechRecognition' in window) {
     recognition.onerror = (event) => {
       console.error('Speech recognition error:', event.error);
     };
-      recognition.onend = ()=>{
+    recognition.onend = ()=>{
           console.log("speech recognition ended");
-      }
+          micButton.style.animation = "none";
+    }
   
   } else {
     alert('Speech recognition is not supported in this browser.');
