@@ -1,10 +1,14 @@
 let mainContainer = document.getElementById('mainContainer');
+let title = document.getElementById('title');
 let taskArr = JSON.parse(localStorage.getItem('TASKS'))||[]
-if(taskArr&&taskArr.length==0){
-    mainContainer.innerHTML = `<span style="display: block; text-align: center; font-size: 20px; color: gray;">ADD TASKS</span>`
-}
+
 function displayData(tasks) {
-    mainContainer.innerHTML = '';
+    if (tasks.length === 0) {
+        title.style.display = 'block'; 
+    } else {
+        title.style.display = 'none';
+    }
+    mainContainer.innerHTML = ``
     tasks.forEach(ele => {
         let itemContainer = document.createElement('div');
         let inputElement = document.createElement('input')
@@ -12,7 +16,6 @@ function displayData(tasks) {
         inputElement.value = ele.task;
         inputElement.id = `taskInput-${ele.id}`
         inputElement.readOnly = true;
-
 
 
         let updateIcon = document.createElement('span')
@@ -50,7 +53,6 @@ taskForm.addEventListener('submit', (event) => {
     }
     taskArr.push(newTask)
     localStorage.setItem("TASKS",JSON.stringify(taskArr))
-    // console.log(taskArr)
     displayData(taskArr)
     document.getElementById('task').value = ""
 })
@@ -74,7 +76,7 @@ function saveTask(id){
 
 // DELETES TASK
 function removeTask(ele){
-    let isExisitingUser = taskArr.filter(element=> ele !== element)
+    let isExisitingUser = taskArr.filter(element=> element.id !== ele.id)
     console.log(isExisitingUser)
     localStorage.setItem('TASKS',JSON.stringify(isExisitingUser))
     taskArr = isExisitingUser;
@@ -85,8 +87,8 @@ function removeTask(ele){
 
 if ('webkitSpeechRecognition' in window) {
     const recognition = new webkitSpeechRecognition();
-    recognition.continuous = false; // Capture only one phrase
-    recognition.lang = 'en-US'; // Set language
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
   
     const micButton = document.getElementById('micButton'); 
   
