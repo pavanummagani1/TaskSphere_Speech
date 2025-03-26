@@ -9,6 +9,7 @@ function displayData(tasks) {
         title.style.display = 'none';
     }
     mainContainer.innerHTML = ``
+    mainContainer.appendChild(title);
     tasks.forEach(ele => {
         let itemContainer = document.createElement('div');
         let inputElement = document.createElement('input')
